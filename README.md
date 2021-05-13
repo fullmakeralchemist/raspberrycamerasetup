@@ -17,9 +17,9 @@ There are multiple options but in this guide I will give you two options so that
 *   Power supply (Preferably purchase the official source together with your Raspberry so as not to have any problems, if you do not have much experience [USB-C Power Supply](https://www.raspberrypi.org/products/type-c-power-supply/))
 * Smartphone with Mobile Hotspot function
 *  Micro SD card
-*  [Raspberry Pi High Quality Camera](https://www.adafruit.com/product/4561) (is the one I will use in this guide, but you can use the [Raspberry Pi Camera Board v2](https://www.adafruit.com/product/3099) It is the previous and cheaper version.)
-* [6mm 3MP Wide Angle Lens for Raspberry Pi HQ Camera - 3MP](https://www.adafruit.com/product/4563) (The HQ camera module allows us to use lenses, this element is optional in case of using the second camera option).
-* [Flex Cable for Raspberry Pi Camera](https://www.adafruit.com/product/2087) (It is usually included in the purchase of Raspberry Pi Camera modules).
+*  [Raspberry Pi High Quality Camera](https://www.adafruit.com/product/4561) (is the one I will use in this guide, but you can use the [Raspberry Pi Camera Board v2](https://www.adafruit.com/product/3099) It is the previous and cheaper version)
+* [6mm 3MP Wide Angle Lens for Raspberry Pi HQ Camera - 3MP](https://www.adafruit.com/product/4563) (The HQ camera module allows us to use lenses, this element is optional in case of using the second camera option)
+* [Flex Cable for Raspberry Pi Camera](https://www.adafruit.com/product/2087) (It is usually included in the purchase of Raspberry Pi Camera modules)
 * Camera tripod (**Note: only in case of using the HQ module.** The advantage of the HQ module is that it has a standard 1/4 ”-20 tripod mount, which is what most of the the current tripods, I leave you a link of a purchase option in [Amazon](https://www.amazon.com.mx/Ubeesize-tel%C3%A9fono-ajustable-distancia-Universal/dp/B06Y2VP3C7/ref=sr_1_3?__mk_es_MX=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=%C2%BC%22-20+tripod&qid=1620010127&refinements=p_36%3A9841539011&rnid=9754432011&s=electronics&sr=1-3))
  
 Optional:
@@ -37,12 +37,12 @@ Now we will talk about the two modules that I mentioned.
 
 ### 1.1 HQ Camera module
 
-Este módulo es el más reciente accesorio de cámara Raspberry Pi. Ofrece una resolución más alta (12 megapíxeles, en comparación con la anterior de 8 megapíxeles) y sensibilidad (aproximadamente un 50% más de área por píxel para rendimiento mejorado en condiciones de poca luz) que el módulo de cámara v2 existente, y está diseñado para funcionar con lentes intercambiables en montura C y CS. Se pueden utilizar otros lentes utilizando adaptadores.
+This module is the latest Raspberry Pi camera accessory. It offers higher resolution (12 megapixels, compared to the previous 8 megapixels) and sensitivity (approximately 50% more area per pixel for improved performance in low light conditions) than the existing v2 camera module, and is designed to work with interchangeable C and CS mount lenses. Other lenses can be used using adapters.
 
-Los lentes de 6 mm con montura CS y [16 mm](https://www.adafruit.com/product/4562) con montura C son ejemplos de todos los compatibles que existen.
-La cámara de alta calidad ofrece una alternativa al módulo de cámara v2.
+6mm CS mount lenses and [16 mm](https://www.adafruit.com/product/4562) with C-mount are examples of all the compatible ones that exist.
+The high-quality camera offers an alternative to the camera module v2.
 
-Para aplicaciones industriales y de consumo, incluidas cámaras de seguridad, que requieren los más altos niveles de fidelidad visual y/o integración con óptica especializada. Es compatible con todos los modelos de Raspberry Pi, la última versión de software.
+For industrial and consumer applications, including security cameras, that require the highest levels of visual fidelity and / or integration with specialized optics. It is compatible with all Raspberry Pi models, the latest version of software.
 
 ![hq](https://user-images.githubusercontent.com/79243784/117897164-caf03100-b287-11eb-9407-56db4d3263ea.png)
 
@@ -50,42 +50,42 @@ Para aplicaciones industriales y de consumo, incluidas cámaras de seguridad, qu
 
 ### 1.2 Raspberry Pi Camera Board v2 (8 Mp)
 
-Este módulo de cámara de 8 Mp es capaz de capturar video de 1080 px e imágenes, se puede conectar a todos los modelos de Raspberry Pi. Listo para conectar y usar, muy adecuado para fotografiar por lapsos, grabar video o para usarlo en aplicaciones de seguridad y en detección de movimientos. Sólo hay que conectar el cable incluido al puerto CSI de la Raspberry Pi.
+This 8 Mp camera module is capable of capturing 1080 px video and images, it can be connected to all Raspberry Pi models. Ready to plug and play, well suited for lap photography, video recording, or for use in security and motion detection applications. Just connect the included cable to the CSI port of the Raspberry Pi.
 
-El módulo es pequeño mide 25 mm x 23 mm x 9 mm y tiene una peso de 3 gr, haciéndola perfecta para aplicaciones móviles u otras en donde el peso es un factor muy importante.
+The module is small measuring 25 mm x 23 mm x 9 mm and has a weight of 3 grams, making it perfect for mobile applications or others where weight is a very important factor.
 
-El sensor tiene una resolución de 8 megapíxeles y tiene un lente de enfoque. En cuanto a las imágenes, la cámara es capaz de tomar imágenes estáticas hasta de 3280 x 2464 pixeles y videos de 1830p30.
+The sensor has a resolution of 8 megapixels and has a focusing lens. As for images, the camera is capable of taking still images up to 3280 x 2464 pixels and 1830p30 videos.
 
 ![Sin título](https://user-images.githubusercontent.com/79243784/117897201-e0655b00-b287-11eb-846e-6095b8b03373.png)
 
-## 2.Configuración de la cámara
+## 2.Camera setup
 
-### 2.1 Conexión física
+### 2.1 Connection
 
-Todos los modelos actuales de Raspberry Pi tienen un puerto para conectar el módulo de la cámara.
+All current Raspberry Pi models have a port to connect the camera module.
 
 ![pi4-camera-port](https://user-images.githubusercontent.com/79243784/117897214-e9eec300-b287-11eb-8152-bccb729a701f.png)
 
-**Nota: Si desea utilizar una Raspberry Pi Zero, necesita un [cable](https://www.adafruit.com/product/3157) del módulo de la cámara que se ajuste al puerto del módulo de la cámara más pequeño de la Raspberry Pi Zero.**
+**Note: If you want to use a Raspberry Pi Zero, you need a camera module [cable](https://www.adafruit.com/product/3157) that fits into the smaller camera module port of the Raspberry Pi Zero.**
 
-Conecte el módulo de la cámara
+Connect the camera module
 
-**Asegúrese de que su Raspberry Pi esté apagada.**
+**Make sure your Raspberry Pi is powered off.**
 
-1.   Localice el puerto del módulo de la cámara
-2.   Tire suavemente hacia arriba de los bordes del clip de plástico del puerto
-3. Inserte el cable plano del módulo de la cámara (**Nota: asegúrese de que el cable esté en la dirección correcta. El lado azul del cable va mirando hacia el conector jack y de los puertos USB**)
-4. Vuelva a colocar el clip de plástico en su lugar.
+1.   Locate the camera module port
+2.   Gently pull up on the edges of the plastic port clip
+3.   Insert the flat cable from the camera module (**Note: Make sure the cable is in the correct direction. The blue side of the cable is facing the jack connector and the USB ports**)
+4.   Put the plastic clip back in place.
 
 ![connect-camera](https://user-images.githubusercontent.com/79243784/117897272-0ee33600-b288-11eb-84ba-20752b986221.gif)
 
 ![ribon](https://user-images.githubusercontent.com/79243784/117897287-17d40780-b288-11eb-96c0-398930cd7a7a.png)
 
-La forma mas simple de conectar el modulo HQ en mi caso se vería de la siguiente forma:
+The simplest way to connect the HQ module in my case would look like this:
 
 ![20210502_140006](https://user-images.githubusercontent.com/79243784/117897301-20c4d900-b288-11eb-9883-a8efce9025d1.jpg)
 
-Yo opté por solamente utilizar el soporte de la cámara con la Raspberry por lo que te mostraré un poco de cómo utilice los tornillos y el resultado final.
+I opted to only use the camera mount with the Raspberry so I'll show you a bit of how to use the screws and the end result.
 
 ![20210502_134233](https://user-images.githubusercontent.com/79243784/117897329-2d493180-b288-11eb-8a0b-1c9b9c9ad448.jpg)
 
@@ -93,15 +93,15 @@ Yo opté por solamente utilizar el soporte de la cámara con la Raspberry por lo
 
 ![20210506_110052](https://user-images.githubusercontent.com/79243784/117897377-494cd300-b288-11eb-9d14-ce4cdfdc21ee.jpg)
 
-Ahora solo faltaría conectar el lente que en esta ocasión utilicé el de 6mm, puedes saltarte esta parte y pasar a la parte 2.2 si es que utilizaste la opción V2 de 8 Mp.
+Now I just need to connect the lens that this time I used the 6mm one, you can skip this part and go to part 2.2 if you used the 8 Mp V2 option.
 
 ![Diseño sin título](https://user-images.githubusercontent.com/79243784/117898228-1efc1500-b28a-11eb-80e9-aa66eab0fb87.png)
 
-Tenemos que quitar la tapa anti-polvo para el lente de 6mm y el adaptador C-CS entonces nos quedaría de la siguiente forma:
+We have to remove the dust cap for the 6mm lens and the C-CS adapter so it would be as follows:
 
 ![hq](https://user-images.githubusercontent.com/79243784/117898246-27545000-b28a-11eb-858b-39e55220f7d6.png)
 
-Los lentes vienen con dos tapas una del lado del lente y otra por la entrada que conecta al modulo.
+The lenses come with two covers, one on the side of the lens and the other through the entrance that connects to the module.
 
 #### 2.1.1 Colocación del lente
 La lente de 6 mm tiene montura CS,
