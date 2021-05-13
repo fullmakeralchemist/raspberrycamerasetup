@@ -193,79 +193,79 @@ sudo reboot
 ```
 To be able to access again by VNC.
 
-#### 2.2.3 Prueba imagen.jpg
+#### 2.2.3 Test image.jpg
 
-Ahora deberías ver una imagen clara y podrás tomar una fotografía de prueba ingresando el comando:
+You should now see a clear image and you can take a test photo by entering the command:
 
 `raspistill -o test.jpg`
 
-Cuando presione ENTER, aparecerá una imagen de vista previa en vivo, y después de un período predeterminado de cinco segundos, la cámara capturará una única imagen fija. Esto se guardará en su carpeta de inicio y llamado test.jpg.
+When you press ENTER, a live preview image will appear, and after a predetermined period of five seconds, the camera will capture a single still image. This will be saved in your home folder and named test.jpg.
 
 ![2021-05-02-162452_1024x768_scrot](https://user-images.githubusercontent.com/79243784/117899956-e3fbe080-b28d-11eb-8c27-5245ed3c0925.png)
 
-Así se ve la imagen que tomé con este comando:
+This is what the image I took with this command looks like:
 
 ![test](https://user-images.githubusercontent.com/79243784/117899972-ebbb8500-b28d-11eb-943b-24779509291d.jpg)
 
-#### 2.2.4 Prueba video
+#### 2.2.4 Video test
  
-Para grabar videos, raspivid es lo que necesitas. Pruébalo con este comando de Terminal:
+To record videos, raspivid is what you need. Try it with this Terminal command:
  
--t 10000 es el tiempo que va a estar grabando video, 10000 milisegundos serían 10 segundos de grabación. h264 es el formato de video para reproducir en vlc, reproductor que incluye el Raspberry Pi OS, en caso de que quieras cambiar el formato por MP4 que es un formato más común y amigable para edición, al final te dejare algunos comandos y ligas para esto.
+-t 10000 is the time that it will be recording video, 10000 milliseconds would be 10 seconds of recording. h264 is the video format to play in vlc, a player that includes the Raspberry Pi OS, in case you want to change the format to MP4 which is a more common and friendly format for editing, at the end I will leave you some commands and links for this .
  
 ```
 raspivid -t 10000 -o testvideo.h264
 ```
 ![2021-05-06-111139_1024x768_scrot](https://user-images.githubusercontent.com/79243784/117900055-1279bb80-b28e-11eb-8f5a-b4b876977c78.png)
 
-Podremos ver la vista previa del archivo y después en la carpeta de Raspberry Pi encontraremos el archivo para poder reproducirlo.
+We can see the preview of the file and then in the Raspberry Pi folder we will find the file to be able to reproduce it.
 
 ![2021-05-06-111916_1024x768_scrot](https://user-images.githubusercontent.com/79243784/117900127-33daa780-b28e-11eb-8b73-11dc4ae42a53.png)
 
-## 3.Controlar el módulo de la cámara con código Python
+## 3.Control the camera module with Python code
 
-### 3.1 Vista previa
+### 3.1 Preview
 
-La biblioteca Python ***picamera*** le permite controlar su módulo de cámara y crear proyectos increíbles.
+The Python ***picamera*** library allows you to control your camera module and create amazing projects.
  
-Abra un editor de Python 3, como Thonny Python IDE o aprovechando el tutorial anterior [VS Code en Raspberry Pi](https://github.com/fullmakeralchemist/gitvscode) podemos usar el VS Code, crearemos una  carpeta en el escritorio llamada camera o cámara, daremos clic derecho para abrir las opciones, seleccionaremos "Open current folder in terminal", para abrir directamente el folder y la terminal, también puedes hacer esto en la terminal con el comando cd para ubicarnos en la carpeta camera.
+Open a Python 3 editor, such as Thonny Python IDE or taking advantage of the previous tutorial [VS Code on Raspberry Pi](https://github.com/fullmakeralchemist/gitvscode) we can use the VS Code, we will create a folder on the desktop called camera or camera, we will right click to open the options, we will select "Open current folder in terminal", to directly open the folder and the terminal, you can also do this in the terminal with the cd command to locate ourselves in the camera folder.
  
-Una vez ubicados en dentro de la terminal en la carpeta utilizaremos el comando:
+Once located inside the terminal in the folder we will use the command:
  
 `code .`
  
-Con esto nos abrirá directamente VS Code en la carpeta que vamos a trabajar
+With this we will directly open VS Code in the folder that we are going to work with
 
 ![2021-05-06-112129_1024x768_scrot](https://user-images.githubusercontent.com/79243784/117911744-ea955280-b2a3-11eb-88b5-0d1e7c93538d.png)
 
-Abra un archivo nuevo y guárdelo como camera.py.
+Open a new file and save it as camera.py.
 
-**Nota: es importante que nunca guarde el archivo como picamera.py**
+**Note: it is important that you never save the file as picamera.py**
 
-En VS code podemos encontrar el icono de crear nuevo archivo.
+In VS code we can find the icon to create a new file.
 
 ![2021-05-06-112835_1024x768_scrot2](https://user-images.githubusercontent.com/79243784/117911776-f7b24180-b2a3-11eb-8e12-05c0edde9720.png)
 
-Ahora daremos clic en "CTRL + S" para guardar y nos aparecerá la siguiente ventana. Ingresamos el nombre de nuestro archivo para poder ingresar el código.
+Now we will click on "CTRL + S" to save and the following window will appear. We enter the name of our file to be able to enter the code.
 
 ![2021-05-06-112636_1024x768_scrot](https://user-images.githubusercontent.com/79243784/117911796-ff71e600-b2a3-11eb-8420-fec124acae41.png)
 
-Antes de ingresar el código debemos asegurarnos de tener instalada la herramienta de Python para VS Code. Verifique con la imagen que tiene instalada la que utilizaremos.
+Before entering the code we must make sure that we have the Python tool for VS Code installed. Verify with the image that you have installed the one that we will use.
 
 ![2021-05-06-112745_1024x768_scrot](https://user-images.githubusercontent.com/79243784/117911819-0ac51180-b2a4-11eb-9ce1-30132e636553.png)
 
-Ingrese el siguiente código que nos permitirá hacer la misma función de darnos una imagen previa para verificar que nuestro lente está enfocado si ya hiciste este paso y no has desconectado la cámara puedes omitir este paso y pasar al siguiente código:
+Enter the following code that will allow us to do the same function of giving us a preview image to verify that our lens is in focus. If you have already done this step and have not disconnected the camera, you can skip this step and go to the following code:
 
 ```
-from picamera import PiCamera     #importa paquete
+from picamera import PiCamera     #import package
 from time import sleep
 
-camera = PiCamera()    #Primero, importamos la clase PiCamera del módulo picamera. 
-                       #Usaremos esa clase para tener acceso a la cámara física.
+camera = PiCamera()    #First, we import the PiCamera class from the picamera module.
+                       # We will use that class to access the physical camera.
 
-camera.start_preview()      #método para iniciar la visualización de la entrada de la cámara.
-sleep(5)                    #tiempo que esta abierta la visualización
-camera.stop_preview()       #método para cerrar la visualización de la entrada de la cámara.
+camera.start_preview()      # method to start the camera input display.
+sleep(5)                    #time the visualization is open
+camera.stop_preview()       # method to close the camera input display.
 ```
 
 ![2021-05-06-112645_1024x768_scrot](https://user-images.githubusercontent.com/79243784/117911877-20d2d200-b2a4-11eb-87e4-2a73cbf38d04.png)
