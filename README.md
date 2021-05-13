@@ -103,97 +103,95 @@ We have to remove the dust cap for the 6mm lens and the C-CS adapter so it would
 
 The lenses come with two covers, one on the side of the lens and the other through the entrance that connects to the module.
 
-#### 2.1.1 Colocación del lente
-La lente de 6 mm tiene montura CS,
-por lo que no necesita el anillo adaptador C-CS. No se enfocará correctamente si el adaptador está instalado, así que, si es necesario, retírelo.
-Luego, gire la lente en el sentido de las agujas del reloj hasta el final para dejarlo conectactado con el anillo de ajuste del enfoque posterior. **No debe apretarse con mucha fuerza por que puedes dañar el lente o el modulo, solamente que quede firme.**
+#### 2.1.1 Fitting the lens
+6mm lens is CS mount,
+so you don't need the C-CS adapter ring. It will not focus properly if the adapter is installed, so remove it if necessary.
+Then turn the lens clockwise all the way to connect it with the back focus adjustment ring. **It should not be tightened with too much force because you can damage the lens or the module, just keep it firm.**
 
 ![gira](https://user-images.githubusercontent.com/79243784/117899476-d003af00-b28c-11eb-80fd-3747125546ba.png)
 
-#### 2.1.2 Ajuste de enfoque anillo posterior y tornillo de bloqueo
-El anillo de ajuste del enfoque posterior debe estar atornillado completamente para la distancia focal posterior más corta posible. Utilice el tornillo de bloqueo del enfoque posterior para
-asegúrarse de que no se mueva de esta posición al ajustar la apertura o el enfoque (Al comprar el modulo HQ incluye un atornillador de la medida exacta para poder manipular el tornillo de bloqueo).
+#### 2.1.2 Back focus adjustment ring and lock screw
+The back focus adjustment ring should be fully screwed in for the shortest possible back focal length. Use the back focus locking screw to make sure that it does not move from this position when adjusting the aperture or focus (When purchasing the HQ module, it includes a screwdriver of the exact size to be able to manipulate the locking screw).
 
 ![atornilla](https://user-images.githubusercontent.com/79243784/117899492-d7c35380-b28c-11eb-9de1-ac270723cc5c.png)
 
-Ya listo e instalado nuestro lente se verá de la siguiente forma.
+Once ready and installed, our lens will look like the following.
 
 ![20210502_143918](https://user-images.githubusercontent.com/79243784/117899502-de51cb00-b28c-11eb-95db-ceb0a9a4c218.jpg)
 
-Una vez ya instalado el lente y conectado el módulo a nuestra Raspberry podemos seguir con la configuración al encender e ingresar por VNC.
+Once the lens is installed and the module is connected to our Raspberry, we can continue with the configuration when turning on and entering through VNC.
 
-### 2.2 Configuración de Raspberry Pi por VNC.
+### 2.2 Raspberry Pi configuration by VNC.
 
-1.   Enciende tu Raspberry Pi.
-2.   Ingresa por VNC desde tu ordenador a tu Raspberry.
-3.   Vaya al menú principal y abra **Raspberry Pi Configuration**.
+1.   Turn on your Raspberry Pi.
+2.   Login via VNC from your computer to your Raspberry.
+3.   Go to the main menu and open **Raspberry Pi Configuration**.
 
 ![pi-configuration-menu](https://user-images.githubusercontent.com/79243784/117899529-eb6eba00-b28c-11eb-978c-ff27014dc510.png)
 
-Seleccione la pestaña **Interfaces** y asegúrese de que la cámara esté habilitada (**enabled**)
+Select the **Interfaces** tab and make sure the camera is **enabled**.
 
 ![1CAMERAENABLE](https://user-images.githubusercontent.com/79243784/117899553-fb869980-b28c-11eb-9493-c81c301eb4ad.png)
 
-Reinicia tu Raspberry Pi.
+Reboot your Raspberry Pi.
 
 ![3](https://user-images.githubusercontent.com/79243784/117899579-07725b80-b28d-11eb-950b-b470adfe0725.png)
 
-Una vez reiniciada, pasaremos a hacer unos cambios en VNC dentro del escritorio de Raspberry, al ejecutar algunos comandos nos mostrará la vista previa de lo que va a capturar en VNC no es posible a menos de que hagamos estos cambios. Lo primero es dirigirnos al icono de VNC y dar clic.
+Once restarted, we will make some changes in VNC within the Raspberry desktop, when executing some commands it will show us the preview of what it is going to capture in VNC it is not possible unless we make these changes. The first thing is to go to the VNC icon and click.
 
 ![TERMINAL](https://user-images.githubusercontent.com/79243784/117899610-1822d180-b28d-11eb-8eef-fa20be6bc57b.png)
 
-Nos abrirá la siguiente ventana, donde encontraremos en la parte derecha un recuadro daremos clic.
+The following window will open, where we will find a box on the right side, we will click.
 
 ![VNC1](https://user-images.githubusercontent.com/79243784/117899631-2244d000-b28d-11eb-9a9a-0956f03f07f7.png)
 
-Daremos clic en "Options".
+We will click on "Options".
 
 ![options](https://user-images.githubusercontent.com/79243784/117899691-41dbf880-b28d-11eb-992a-ff5dfc4319e0.png)
 
-Nos iremos a la pestaña "Troubleshooting"
+We will go to the tab "Troubleshooting".
 
 ![2021-05-02-152414_1024x768_scrot](https://user-images.githubusercontent.com/79243784/117899707-4c968d80-b28d-11eb-8bbc-bdfe6de2db8a.png)
 
-Daremos clic en la casilla "Enable direct capture mode" y después daremos clic en Apply . Esto nos permitirá ver la vista previa de lo que está capturando nuestro modulo cámara. Se irá a pantalla negra unos segundos y cuando recupere la imagen estará listo, no es necesario pero puedes reiniciar la Raspberry para comenzar con el siguiente paso.
+We will click on the "Enable direct capture mode" box and then we will click on Apply. This will allow us to see the preview of what our camera module is capturing. It will go to black screen for a few seconds and when it recovers the image it will be ready, it is not necessary but you can restart the Raspberry to start with the next step.
 
 ![2021-05-02-152426_1024x768_scrot](https://user-images.githubusercontent.com/79243784/117899734-56b88c00-b28d-11eb-9962-24a4284477c3.png)
 
-Por el momento la cámara está desenfocada así que necesitamos ejecutar un comando para poder tener acceso a la vista. Así que vamos a abrir la terminal de Raspberry.
+At the moment the camera is out of focus so we need to run a command to access the view. So let's open the Raspberry terminal.
 
 ![4TERMINAL](https://user-images.githubusercontent.com/79243784/117899764-67690200-b28d-11eb-9682-b7aa59ed2026.png)
 
-raspistill es una herramienta de comandos para capturar imágenes de la cámara. Para verificar que la cámara está instalada correctamente y usar la cámara sólo como un visor, sin guardar una foto, ingresa este
-comando:
+raspistill is a command tool for capturing images from the camera. To verify that the camera is installed correctly and use the camera only as a viewfinder, without saving a photo, enter this
+command:
  
 `raspistill -t 0`
  
-Nos dará de seguro una imagen borrosa en el caso del modulo HQ para el módulo V2 no tendrá mayor problema.
+It will give us a blurry image for sure in the case of the HQ module for the V2 module it will not have a major problem.
 
 ![6](https://user-images.githubusercontent.com/79243784/117899782-78197800-b28d-11eb-9604-5398440d1484.png)
 
-Ahora veremos los pasos para enfocar el modulo con su lente.
+Now we will see the steps to focus the module with its lens.
 
 ![yes](https://user-images.githubusercontent.com/79243784/117899834-941d1980-b28d-11eb-90ff-37ee60122136.png)
 
-#### 2.2.1 Apertura
-Para arreglar esto hay que ajustar la apertura, mantenga la cámara con el objetivo en dirección opuesta a usted.
-Gire el anillo del medio mientras sostiene el anillo exterior, más alejado de la cámara, estable. Turno en el sentido de las agujas del reloj para cerrar la apertura y reducir brillo de la imagen. Gire en sentido antihorario para abrir la apertura. Una vez que estés feliz con la luz nivel, apriete el tornillo en el lateral de la lente para bloquear la apertura.
+#### 2.2.1 Aperture
+To fix this you have to adjust the aperture, keep the camera with the lens away from you.
+Rotate the middle ring while holding the outer ring, farthest from the camera, stable. Shift clockwise to close the aperture and reduce image brightness. Turn counterclockwise to open the opening. Once you are happy with the light level, tighten the screw on the side of the lens to lock the aperture.
 
 ![aprtura](https://user-images.githubusercontent.com/79243784/117899916-caf32f80-b28d-11eb-8b90-2671931d9ea0.png)
 
-#### 2.2.2 Enfoque 
-Primero, bloquee el anillo de enfoque interno, etiquetado
-"NEAR FAR", en posición apretando su tornillo. Ahora sostenga la cámara con la lente de espaldas a ti. Sostenga los dos exteriores anillos de la lente y gírese en el sentido de las agujas del reloj
-hasta que la imagen esté enfocada, tomará cuatro o cinco vueltas enteras. Para ajustar el enfoque, gire los dos anillos exteriores en el sentido de las agujas del reloj para enfocar un objeto cercano. Gire en sentido antihorario para centrarse en un objeto distante.Lo mas seguro es que necesitarás ajustar la apertura nuevamente después de esto cada que quites y pongas el lente.
+#### 2.2.2 Focus 
+First, lock the inner focus ring, labeled
+"NEAR FAR", in position by tightening its screw. Now hold the camera with the lens facing away from you. Hold the two outer rings of the lens and turn clockwise until the image is in focus, it will take four or five full turns. To adjust the focus, turn the two outer rings clockwise to focus on a nearby object. Rotate counterclockwise to focus on a distant object - you will most likely need to adjust the aperture again after this each time you remove and attach the lens.
 
 ![enfoque](https://user-images.githubusercontent.com/79243784/117899921-cfb7e380-b28d-11eb-9df7-b3492bb27ae9.png)
 
-Después de enfocar, tendremos que cerrar la ventana, tal vez no podamos por que la imagen es muy grande y no aparece el icono de cerrar, en ese caso tendremos que acceder por SSH y usar el comando:
+After focusing, we will have to close the window, maybe we cannot because the image is very large and the close icon does not appear, in that case we will have to access by SSH and use the command:
  
 ```
 sudo reboot
 ```
-Para poder acceder de nuevo por VNC.
+To be able to access again by VNC.
 
 #### 2.2.3 Prueba imagen.jpg
 
