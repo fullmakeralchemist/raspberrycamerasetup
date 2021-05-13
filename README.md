@@ -368,7 +368,7 @@ Alternatively, wrap the MP4 format around your existing raspivid output, with:
 MP4Box -add video.h264 video.mp4
 ```
 
-With this we come to the end of this guide, you can take advantage of the [Git and VS Code guide](https://github.com/fullmakeralchemist/gitvscode) to upload these codes to your Github, to review more about the MP4 format in Raspberry visit [raspivid] (https://www.raspberrypi.org/documentation/usage/camera/raspicam/raspivid.md).
+With this we come to the end of this guide, you can take advantage of the [Git and VS Code guide](https://github.com/fullmakeralchemist/gitvscode) to upload these codes to your Github, to review more about the MP4 format in Raspberry visit [raspivid](https://www.raspberrypi.org/documentation/usage/camera/raspicam/raspivid.md).
 
 If you want to know more about Raspberry Pi and the use of the camera visit [Camera Raspberry Pi](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/6).
 
