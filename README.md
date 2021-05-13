@@ -299,31 +299,33 @@ sleep(5)
 camera.capture('/home/pi/Desktop/image.jpg')  #directory where you will save the image and the name of the image
 camera.stop_preview()
 ```
-**Nota: es importante usar un sleep de al menos dos segundos antes de capturar una imagen, porque esto le da tiempo al sensor de la cámara para detectar los niveles de luz.**
+**Note: it is important to use a sleep of at least two seconds before capturing an image, because this gives the camera sensor time to detect light levels.**
 
-Ejecutar con el botón de VS Code.
+Run with the VS Code button.
 
 ![2021-05-06-113114_1024x768_scrot](https://user-images.githubusercontent.com/79243784/117912105-7c04c480-b2a4-11eb-8b48-581f6890fc03.png)
 
-Debería ver la vista previa de la cámara abierta durante cinco segundos y luego se debe capturar una imagen fija. Mientras se toma la imagen, puede ver la vista previa ajustarse brevemente a una resolución diferente.
+You should see the open camera preview for five seconds and then a still image should be captured. While the image is being taken, you can watch the preview briefly adjust to a different resolution.
 
-Su nueva imagen debe guardarse en el escritorio.
+Your new image should be saved to the desktop.
 
 ![2021-05-06-113130_1024x768_scrot](https://user-images.githubusercontent.com/79243784/117912123-845cff80-b2a4-11eb-8af0-660d60e44983.png)
 
 ### 3.3 Video
 
-¡Ahora graba un video!
+Now record a video!
 
-Modifique su código para eliminar capture() y en su lugar agregue start_recording() y stop_recording(). Su código debería verse así ahora:
+Modify your code to remove capture () and instead add start_recording () and stop_recording (). Your code should look like this now:
 
 ```
 from picamera import PiCamera
 from time import sleep
+
 camera = PiCamera()
+
 camera.start_preview()
-camera.start_recording('/home/pi/video.h264') #directorio en el que va a guardar el 
-                                              #video y el nombre del archivo
+camera.start_recording('/home/pi/video.h264')     #start recording / directory in which it goes
+                                                  #a save the video and the file name
 sleep(10)
 camera.stop_recording()
 camera.stop_preview()
@@ -331,9 +333,9 @@ camera.stop_preview()
 
 ![2021-05-06-113254_1024x768_scrot](https://user-images.githubusercontent.com/79243784/117912188-a9ea0900-b2a4-11eb-95cf-0fcbfac78e42.png)
 
-Ejecute el código.
+Run the code.
 
-Su Raspberry Pi debería abrir una vista previa, grabar 5 segundos de video y luego cerrar la vista previa.
+Your Raspberry Pi should open a preview, record 5 seconds of video, and then close the preview.
 
 ![2021-05-06-113306_1024x768_scrot](https://user-images.githubusercontent.com/79243784/117912196-aeaebd00-b2a4-11eb-8afb-f2af40f56fcc.png)
 
@@ -341,36 +343,33 @@ Su Raspberry Pi debería abrir una vista previa, grabar 5 segundos de video y lu
 
 ## 4.1 Formato de video MP4
 
-Raspberry Pi captura video como un formato de video H264 sin procesar. Muchos reproductores multimedia se negarán a reproducirlo, o lo reproducirá a una velocidad incorrecta, a menos que esté "envuelto" en un formato contenedor adecuado como MP4. La forma más fácil de obtener un archivo MP4 con el comando raspivid es usando MP4Box.
+Raspberry Pi captures video as a raw H264 video format. Many media players will refuse to play it, or play it at the wrong speed, unless it is "wrapped" in a suitable container format like MP4. The easiest way to get an MP4 file with the raspivid command is using MP4Box.
 
-Instale MP4Box con este comando:
+Install MP4Box with this command:
 
 ```
 sudo apt install -y gpac
 ```
 
-Capture su video sin procesar con raspivid y envuélvalo en un contenedor MP4 como este:
+Capture your raw video with raspivid and wrap it in an MP4 container like this:
 
 ```
-# Capture 30 segundos de video sin procesar a 640x480 y una tasa de bits de 150kB/s en un archivo pivideo.h264:
+# Capture 30 seconds of raw video at 640x480 and 150kB / s bit rate in a pivideo.h264 file:
 raspivid -t 30000 -w 640 -h 480 -fps 25 -b 1200000 -p 0,0,640,480 -o pivideo.h264
-# Envuelva el video sin procesar con un contenedor MP4:
+# Wrap the raw video with an MP4 container:
 MP4Box -add pivideo.h264 pivideo.mp4
-# Elimina el archivo sin procesar de origen, dejando que se reproduzca el archivo pivideo.mp4 restante
+# Delete the source raw file, leaving the remaining pivideo.mp4 file to play
 rm pivideo.h264
-```
+`` ''
 
-Alternativamente, envuelva el formato MP4 alrededor de su salida raspivid existente, con:
+Alternatively, wrap the MP4 format around your existing raspivid output, with:
 
 ```
 MP4Box -add video.h264 video.mp4
 ```
 
+With this we come to the end of this guide, you can take advantage of the [Git and VS Code guide](https://github.com/fullmakeralchemist/gitvscode) to upload these codes to your Github, to review more about the MP4 format in Raspberry visit [raspivid] (https://www.raspberrypi.org/documentation/usage/camera/raspicam/raspivid.md).
 
+If you want to know more about Raspberry Pi and the use of the camera visit [Camera Raspberry Pi](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/6).
 
-
-Con esto llegamos al fin de esta guía, puedes aprovechar la [guía de Git y VS Code](https://github.com/fullmakeralchemist/gitvscode) para subir estos códigos a tu Github, para revisar mas sobre el formato MP4 en Raspberry visita [raspivid](https://www.raspberrypi.org/documentation/usage/camera/raspicam/raspivid.md).
-
-Sí quieres saber mas sobre Raspberry Pi y el uso de la cámara visita [Camera Raspberry Pi](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/6).
-
-Visita mi repositorio en Github.
+Visit my repository on Github.
