@@ -270,33 +270,34 @@ camera.stop_preview()       # method to close the camera input display.
 
 ![2021-05-06-112645_1024x768_scrot](https://user-images.githubusercontent.com/79243784/117911877-20d2d200-b2a4-11eb-87e4-2a73cbf38d04.png)
 
-Usamos “CRTL + S” para guardar y ahora abriremos una terminal en VS Code para este proyecto.
+We use "CRTL + S" to save and now we will open a terminal in VS Code for this project.
 
 ![2021-05-06-112652_1024x768_scrot](https://user-images.githubusercontent.com/79243784/117911909-2d572a80-b2a4-11eb-97fe-c0f2f11e2b42.png)
 
-Ahora podremos ver la terminal en la parte inferior y solo necesitamos correr las líneas de código con el botón que tiene el VS Code en la parte superior derecha (También puedes hacer esto desde la terminal de la forma tradicional y utilizar el comando: `sudo python3 camera.py`)
+Now we can see the terminal at the bottom and we only need to run the lines of code with the button that has the VS Code in the upper right (You can also do this from the terminal in the traditional way and use the command: `sudo python3 camera.py`)
 
 ![2021-05-06-112828_1024x768_scrot](https://user-images.githubusercontent.com/79243784/117911958-4069fa80-b2a4-11eb-89d5-07140390f9ec.png)
 
-Podrás ver en la parte inferior la ejecución del comando.
+You can see at the bottom the execution of the command.
 
 ![2021-05-06-112845_1024x768_scrot](https://user-images.githubusercontent.com/79243784/117912047-65f70400-b2a4-11eb-83ba-c0b5066ff8ba.png)
 
-Al ejecutarse abrira una ventana muy grande que cerrara a los 5 segundos como tenemos definido en `sleep(5)`, tenemos que definir un tiempo si no se mantendra abierta la ventana como en `raspistill -t 0` entonces tendriamos que usar el SSH para ingresar el comando `sudo reboot` para ingresar nuevamente y seguir con el siguiente codigo.
+When executed, it will open a very large window that will close after 5 seconds as we have defined in `sleep (5)`, we have to define a time if the window will not remain open as in `raspistill -t 0` then we would have to use SSH to enter the command `sudo reboot` to enter again and continue with the next code.
 
-### 3.2 Fotografia 
+### 3.2 Photo
 
-Ahora para tomar algunas fotografías puede crear un segundo archivo en mi caso lo llame cameratake.py, modifique su código para agregar una línea camera.capture ():
+Now to take some pictures you can create a second file in my case call it cameratake.py, modify your code to add a camera.capture () line:
 
 ```
-from picamera import PiCamera 
-from time import sleep 
+from picamera import PiCamera
+from time import sleep
+
 camera = PiCamera()
-camera.start_preview() 
-sleep(5)   
-camera.capture('/home/pi/Desktop/image.jpg')        #directorio en el que va a guardar la imagen y 
-                                                    #el nombre de la imagen
-camera.stop_preview() 
+
+camera.start_preview()
+sleep(5)
+camera.capture('/home/pi/Desktop/image.jpg')  #directory where you will save the image and the name of the image
+camera.stop_preview()
 ```
 **Nota: es importante usar un sleep de al menos dos segundos antes de capturar una imagen, porque esto le da tiempo al sensor de la cámara para detectar los niveles de luz.**
 
