@@ -360,13 +360,14 @@ raspivid -t 30000 -w 640 -h 480 -fps 25 -b 1200000 -p 0,0,640,480 -o pivideo.h26
 MP4Box -add pivideo.h264 pivideo.mp4
 # Delete the source raw file, leaving the remaining pivideo.mp4 file to play
 rm pivideo.h264
-`` ''
+```
 
 Alternatively, wrap the MP4 format around your existing raspivid output, with:
 
 ```
 MP4Box -add video.h264 video.mp4
 ```
+
 
 With this we come to the end of this guide, you can take advantage of the [Git and VS Code guide](https://github.com/fullmakeralchemist/gitvscode) to upload these codes to your Github, to review more about the MP4 format in Raspberry visit [raspivid](https://www.raspberrypi.org/documentation/usage/camera/raspicam/raspivid.md).
 
