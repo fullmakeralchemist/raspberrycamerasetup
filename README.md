@@ -1,38 +1,39 @@
-# Configuración de Cámara Raspberry
+# Raspberry Camera Setup
 
-Una de las aplicaciones más utilizadas en Raspberry es el uso de cámaras, para utilizar Tensorflow y darle la capacidad de detectar objetos. Ahora que la Raspberry Pi es lo suficientemente rápida para realizar el aprendizaje automático, agregar estas funciones en proyectos es más sencillo.
+One of the most used applications in Raspberry is the use of cameras, to use Tensorflow and give it the ability to detect objects. Now that the Raspberry Pi is fast enough to perform machine learning, adding these functions in projects is easier.
  
-Esta guía le mostrará los pasos para aprender a conectar el módulo de cámara Raspberry Pi, tome fotografías, grabe videos y aplique efectos de imagen.
+This guide will show you the steps to learn how to connect the Raspberry Pi camera module, take pictures, record videos, and apply image effects.
  
-Es importante conocer bien el módulo de cámara antes de comenzar a crear nuestras aplicaciones.
+It is important to know the camera module well before starting to create our applications.
  
-Sin mas que decir comencemos.
+Without more to say let's get started.
 
-## 1.Materiales
+## 1.What you'll need
 
-Existen múltiples opciones pero en esta guía te daré dos opciones para que elijas la que te agrade más, por parte de Raspberry Pi existen dos módulos de cámara hablaré de ellos más adelante.
+There are multiple options but in this guide I will give you two options so that you can choose the one that you like the most, on the part of Raspberry Pi there are two camera modules I will talk about them later.
  
 *   Laptop
 *   Raspberry Pi 4
-*   Fuente de alimentación (De preferencia adquirir junto con tu Raspberry la fuente oficial para no tener ningún problema, si es que no tienes mucha experiencia [USB-C Power Supply](https://www.raspberrypi.org/products/type-c-power-supply/))
-* Smartphone con función Mobile Hotspot
-*  Tarjeta Micro SD 
-*  [Raspberry Pi High Quality Camera](https://www.adafruit.com/product/4561) (es la que usare en esta guía, pero puedes utilizar la [Raspberry Pi Camera Board v2](https://www.adafruit.com/product/3099) es la versión anterior y mas económica.)
-* [6mm 3MP Wide Angle Lens for Raspberry Pi HQ Camera - 3MP](https://www.adafruit.com/product/4563) (el modulo HQ camera, nos permite utilizar lentes, este elemento es opcional en caso de utilizar la segunda opción de cámara.
-* [Flex Cable for Raspberry Pi Camera](https://www.adafruit.com/product/2087) (suele venir incluido en la compra de los módulos Raspberry Pi Camera).
-* Trípode de cámara (**Nota: solo en caso de usar el módulo HQ.** la ventaja del módulo HQ es que cuenta con una montura para trípodes con standard 1/4”-20, que es con el que cuentan la mayoría  de los trípodes actuales, te dejo un link de una opción de compra en [Amazon](https://www.amazon.com.mx/Ubeesize-tel%C3%A9fono-ajustable-distancia-Universal/dp/B06Y2VP3C7/ref=sr_1_3?__mk_es_MX=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=%C2%BC%22-20+tripod&qid=1620010127&refinements=p_36%3A9841539011&rnid=9754432011&s=electronics&sr=1-3))
+*   Power supply (Preferably purchase the official source together with your Raspberry so as not to have any problems, if you do not have much experience [USB-C Power Supply](https://www.raspberrypi.org/products/type-c-power-supply/))
+* Smartphone with Mobile Hotspot function
+*  Micro SD card
+*  [Raspberry Pi High Quality Camera](https://www.adafruit.com/product/4561) (is the one I will use in this guide, but you can use the [Raspberry Pi Camera Board v2](https://www.adafruit.com/product/3099) It is the previous and cheaper version.)
+* [6mm 3MP Wide Angle Lens for Raspberry Pi HQ Camera - 3MP](https://www.adafruit.com/product/4563) (The HQ camera module allows us to use lenses, this element is optional in case of using the second camera option).
+* [Flex Cable for Raspberry Pi Camera](https://www.adafruit.com/product/2087) (It is usually included in the purchase of Raspberry Pi Camera modules).
+* Camera tripod (**Note: only in case of using the HQ module.** The advantage of the HQ module is that it has a standard 1/4 ”-20 tripod mount, which is what most of the the current tripods, I leave you a link of a purchase option in [Amazon](https://www.amazon.com.mx/Ubeesize-tel%C3%A9fono-ajustable-distancia-Universal/dp/B06Y2VP3C7/ref=sr_1_3?__mk_es_MX=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=%C2%BC%22-20+tripod&qid=1620010127&refinements=p_36%3A9841539011&rnid=9754432011&s=electronics&sr=1-3))
  
-Opcional:
-* [Raspberry Pi HQ Camera Case](https://learn.adafruit.com/raspberry-pi-hq-camera-case/3d-printing) (En caso de que cuentes con una impresora 3D o de hacer impresiones 3D te dejo un link para que puedas imprimir una carcasa en forma de cámara, mas adelante te dejo la imagen de como se vería).
-* Si utilizas el Case, necesitarás tornillos a la medida [M2.5](https://www.adafruit.com/product/3299), necesitaremos de 12mm y 8mm de largo, aunque para aprovechar puedes comprar algunos de 10mm y 5mm pueden ser útiles para otros proyectos, los puedes conseguir en Amazon o tiendas especializadas en electrónica.
+Optional:
+* [Raspberry Pi HQ Camera Case](https://learn.adafruit.com/raspberry-pi-hq-camera-case/3d-printing) (In case you have a 3D printer or make 3D prints I leave you a link so you can print a camera-shaped housing, later I leave you the image of how it would look).
+
+* If you use the Case, you will need custom screws [M2.5](https://www.adafruit.com/product/3299), We will need 12mm and 8mm long, although to take advantage you can buy some 10mm and 5mm they can be useful for other projects, you can get them at Amazon or specialized electronics stores.
 
 ![20210502_132013](https://user-images.githubusercontent.com/79243784/117899439-be220c00-b28c-11eb-98ba-e935e9548107.jpg)
 
-En caso hicieras uso del modelo 3D aquí tienes una imagen de cómo se vería, esta increíble no lo crees?
+In case you made use of the 3D model, here you have an image of what it would look like, this incredible, don't you think?
 
 ![raspberry_pi_hero-camera](https://user-images.githubusercontent.com/79243784/117897129-b4e27080-b287-11eb-80ee-47e0c8d58aa2.jpg)
 
-Ahora hablaremos de los dos modulos que mencione.
+Now we will talk about the two modules that I mentioned.
 
 ### 1.1 HQ Camera module
 
